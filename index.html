@@ -5,10 +5,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte, Futuro Sustentável</title>
 
 ```
-<title>Agro Forte, Futuro Sustentável</title>
-
 <link rel="stylesheet" href="style.css">
 ```
 
@@ -17,83 +16,84 @@
 <body>
 
 <header>
-    <h1>🌱 Agro Forte, Futuro Sustentável</h1>
 
 ```
+<div class="logo">
+    🌱 AGRO FORTE
+</div>
+
 <nav>
-    <a href="#producao">Produção</a>
-    <a href="#sustentabilidade">Sustentabilidade</a>
+    <a href="#inicio">Início</a>
+    <a href="#sobre">Sobre</a>
     <a href="#tecnologia">Tecnologia</a>
+    <a href="#sustentabilidade">Sustentabilidade</a>
     <a href="#quiz">Quiz</a>
 </nav>
 ```
 
 </header>
 
-<section class="banner">
-    <h2>Equilíbrio entre Produção e Meio Ambiente</h2>
+<section id="inicio" class="hero">
 
 ```
+<div class="hero-texto">
+
+    <h1>Agro Forte, Futuro Sustentável</h1>
+
+    <p>
+        O desenvolvimento do agronegócio aliado à preservação ambiental
+        é essencial para garantir alimento, renda e qualidade de vida
+        para as futuras gerações.
+    </p>
+
+    <button onclick="mostrarMensagem()">
+        Descobrir Mais
+    </button>
+
+    <p id="mensagem"></p>
+
+</div>
+```
+
+</section>
+
+<section id="sobre">
+
+```
+<h2>🌾 O Agro Move o Brasil</h2>
+
 <p>
-    O desenvolvimento sustentável é fundamental para garantir que a produção agrícola continue crescendo sem prejudicar os recursos naturais.
+    O agronegócio brasileiro é um dos mais importantes do mundo.
+    Além de produzir alimentos para milhões de pessoas, o setor gera
+    empregos, movimenta a economia e contribui para o desenvolvimento
+    de diversas regiões do país.
+</p>
+
+<p>
+    Atualmente, a tecnologia permite que a produção seja cada vez mais
+    eficiente, reduzindo desperdícios e aumentando a produtividade de
+    maneira responsável.
 </p>
 ```
 
 </section>
 
-<main>
-
-<section id="producao">
+<section class="estatisticas">
 
 ```
-<h2>🌾 Produção Agrícola</h2>
+<div class="card-estatistica">
+    <h3 id="contador1">0</h3>
+    <p>Tecnologias Sustentáveis</p>
+</div>
 
-<p>
-    O agronegócio é um dos principais pilares da economia brasileira. Ele fornece alimentos para milhões de pessoas e gera empregos em todo o país.
-</p>
+<div class="card-estatistica">
+    <h3 id="contador2">0</h3>
+    <p>Projetos Ambientais</p>
+</div>
 
-<p>
-    A agricultura moderna utiliza máquinas, sistemas de monitoramento e novas tecnologias para aumentar a produtividade e melhorar a qualidade dos alimentos produzidos.
-</p>
-
-<p>
-    O crescimento da produção deve ocorrer de forma responsável, garantindo a preservação do meio ambiente e a utilização consciente dos recursos naturais.
-</p>
-```
-
-</section>
-
-<section id="sustentabilidade">
-
-```
-<h2>🌳 Sustentabilidade no Campo</h2>
-
-<p>
-    A sustentabilidade busca equilibrar o desenvolvimento econômico com a proteção ambiental.
-</p>
-
-<p>
-    No campo, práticas sustentáveis ajudam a preservar a água, proteger o solo e conservar a biodiversidade.
-</p>
-
-<p>
-    Essas ações garantem que as futuras gerações também possam utilizar os recursos naturais de forma saudável e responsável.
-</p>
-
-<button onclick="mostrarInfo()">
-    Ver benefícios da sustentabilidade
-</button>
-
-<div id="info" class="oculto">
-
-    <ul>
-        <li>✔ Preservação da água</li>
-        <li>✔ Conservação do solo</li>
-        <li>✔ Proteção da biodiversidade</li>
-        <li>✔ Redução da poluição</li>
-        <li>✔ Produção mais eficiente</li>
-    </ul>
-
+<div class="card-estatistica">
+    <h3 id="contador3">0</h3>
+    <p>Áreas Preservadas</p>
 </div>
 ```
 
@@ -102,27 +102,24 @@
 <section id="tecnologia">
 
 ```
-<h2>🚜 Tecnologia no Agro</h2>
-
-<p>
-    A tecnologia tem transformado o campo e ajudado os produtores rurais a tomar decisões mais precisas.
-</p>
+<h2>🚜 Tecnologia no Campo</h2>
 
 <div class="cards">
 
     <div class="card">
-        <h3>🚁 Drones</h3>
+        <h3>🚁 Drones Agrícolas</h3>
 
         <p>
-            Monitoram as plantações e ajudam a identificar problemas rapidamente.
+            Monitoram plantações, detectam pragas e ajudam na tomada
+            de decisões rápidas e eficientes.
         </p>
     </div>
 
     <div class="card">
-        <h3>📡 Sensores</h3>
+        <h3>📡 Sensores Inteligentes</h3>
 
         <p>
-            Controlam a umidade do solo e auxiliam na irrigação inteligente.
+            Medem a umidade do solo e auxiliam no uso consciente da água.
         </p>
     </div>
 
@@ -130,7 +127,8 @@
         <h3>🤖 Inteligência Artificial</h3>
 
         <p>
-            Analisa dados e auxilia os agricultores a produzirem mais com menos desperdício.
+            Analisa grandes quantidades de dados e auxilia na previsão
+            de safras e produtividade.
         </p>
     </div>
 
@@ -139,39 +137,48 @@
 
 </section>
 
-<section id="contador">
+<section id="sustentabilidade">
 
 ```
-<h2>🌳 Árvores Preservadas</h2>
+<h2>🌳 Sustentabilidade Ambiental</h2>
 
 <p>
-    Clique para simbolizar a preservação de árvores.
+    Produzir alimentos e preservar o meio ambiente devem caminhar juntos.
+    A sustentabilidade promove práticas que protegem a água, o solo e
+    a biodiversidade.
 </p>
 
-<p id="numero">0</p>
-
-<button onclick="adicionarArvore()">
-    Preservar Árvore
+<button onclick="mostrarBeneficios()">
+    Ver Benefícios
 </button>
+
+<div id="beneficios" class="oculto">
+
+    <ul>
+        <li>✔ Conservação dos recursos naturais</li>
+        <li>✔ Menor impacto ambiental</li>
+        <li>✔ Produção mais eficiente</li>
+        <li>✔ Preservação da fauna e flora</li>
+        <li>✔ Melhor qualidade de vida</li>
+    </ul>
+
+</div>
 ```
 
 </section>
 
-<section id="calculadora">
+<section class="calculadora">
 
 ```
-<h2>🌍 Calculadora Sustentável</h2>
+<h2>🌍 Calculadora Verde</h2>
 
 <p>
-    Digite a quantidade de árvores para estimar a absorção de CO₂.
+    Digite quantas árvores foram preservadas:
 </p>
 
-<input
-    type="number"
-    id="arvores"
-    placeholder="Quantidade de árvores">
+<input type="number" id="arvores">
 
-<button onclick="calcularCO2()">
+<button onclick="calcularImpacto()">
     Calcular
 </button>
 
@@ -183,22 +190,22 @@
 <section id="quiz">
 
 ```
-<h2>🧠 Quiz Ambiental</h2>
+<h2>🧠 Quiz do Agro Sustentável</h2>
 
 <p>
-    Qual prática contribui para a sustentabilidade no campo?
+    Qual dessas práticas ajuda a preservar o meio ambiente?
 </p>
-
-<button class="resposta" data-correta="false">
-    Queimar vegetação
-</button>
 
 <button class="resposta" data-correta="false">
     Desmatamento
 </button>
 
+<button class="resposta" data-correta="false">
+    Queimadas
+</button>
+
 <button class="resposta" data-correta="true">
-    Plantio sustentável
+    Plantio Sustentável
 </button>
 
 <p id="quizResultado"></p>
@@ -206,45 +213,35 @@
 
 </section>
 
-<section id="conclusao">
+<section class="conclusao">
 
 ```
-<h2>✅ Conclusão</h2>
+<h2>🌎 Construindo o Futuro</h2>
 
 <p>
-    O futuro da agricultura depende do equilíbrio entre produção e preservação ambiental.
-</p>
-
-<p>
-    Com o uso da tecnologia e de práticas sustentáveis, é possível aumentar a produtividade sem comprometer os recursos naturais.
-</p>
-
-<p>
-    Um agro forte e sustentável é essencial para garantir alimentos, desenvolvimento econômico e qualidade de vida para toda a sociedade.
+    O futuro da agricultura depende do equilíbrio entre produtividade
+    e preservação ambiental. A união entre tecnologia e sustentabilidade
+    garante um planeta mais saudável para todos.
 </p>
 ```
 
 </section>
-
-</main>
 
 <footer>
 
 ```
 <h3>Créditos</h3>
 
-<p>Projeto desenvolvido para o Concurso Agrinho.</p>
+<p>
+    Projeto desenvolvido para o Concurso Agrinho.
+</p>
 
-<p>Fontes utilizadas para pesquisa:</p>
+<p>
+    Pesquisas realizadas em materiais educativos sobre agricultura
+    sustentável, tecnologia no campo e preservação ambiental.
+</p>
 
-<ul>
-    <li>EMBRAPA</li>
-    <li>Programa Agrinho</li>
-    <li>Ministério da Agricultura</li>
-    <li>Sistema FAEP</li>
-</ul>
-
-<p>#agrinho</p>
+<p><strong>#agrinho</strong></p>
 ```
 
 </footer>
