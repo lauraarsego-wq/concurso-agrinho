@@ -1,14 +1,12 @@
 function mostrarInfo(){
 
-```
-let info = document.getElementById("info");
+    const info = document.getElementById("info");
 
-if(info.style.display === "block"){
-    info.style.display = "none";
-}else{
-    info.style.display = "block";
-}
-```
+    if(info.style.display === "block"){
+        info.style.display = "none";
+    }else{
+        info.style.display = "block";
+    }
 
 }
 
@@ -16,56 +14,54 @@ let contador = 0;
 
 function adicionarArvore(){
 
-```
-contador++;
+    contador++;
 
-document.getElementById("numero").innerText =
-contador;
-```
+    document.getElementById("numero").textContent = contador;
 
 }
 
 function calcularCO2(){
 
-```
-let arvores =
-Number(document.getElementById("arvores").value);
+    const arvores =
+    Number(document.getElementById("arvores").value);
 
-let resultado =
-arvores * 21;
+    const resultado = arvores * 21;
 
-document.getElementById("resultado").innerHTML =
-"Essas árvores podem absorver aproximadamente "
-+ resultado +
-" kg de CO₂ por ano.";
-```
+    document.getElementById("resultado").textContent =
+    "Essas árvores podem absorver aproximadamente " +
+    resultado +
+    " kg de CO₂ por ano.";
 
 }
 
-function respostaCorreta(){
+const botoesQuiz =
+document.querySelectorAll(".resposta");
 
-```
-document.getElementById("quizResultado")
-.innerHTML =
-"✅ Resposta correta!";
-```
+const resultadoQuiz =
+document.getElementById("quizResultado");
 
-}
+botoesQuiz.forEach(botao => {
 
-function respostaErrada(){
+    botao.addEventListener("click", () => {
 
-```
-document.getElementById("quizResultado")
-.innerHTML =
-"❌ Tente novamente.";
-```
+        if(botao.dataset.correta === "true"){
 
-}
+            resultadoQuiz.textContent =
+            "✅ Resposta correta!";
 
-function alternarTema(){
+            resultadoQuiz.style.color =
+            "green";
 
-```
-document.body.classList.toggle("dark");
-```
+        }else{
 
-}
+            resultadoQuiz.textContent =
+            "❌ Resposta incorreta. Tente novamente.";
+
+            resultadoQuiz.style.color =
+            "red";
+
+        }
+
+    });
+
+});
