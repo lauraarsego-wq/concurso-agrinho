@@ -1,34 +1,255 @@
-<section id="sustentabilidade">
-    <h2>Sustentabilidade no Campo</h2>
+<!DOCTYPE html>
 
-    <p>
-        A sustentabilidade busca conciliar a produção agrícola com a conservação dos
-        recursos naturais. Isso significa produzir mais alimentos utilizando técnicas
-        que reduzam os impactos ao meio ambiente.
-    </p>
+<html lang="pt-BR">
 
-    <p>
-        Entre as práticas sustentáveis estão a preservação das matas ciliares, o uso
-        racional da água, a recuperação de áreas degradadas e a proteção da biodiversidade.
-        Essas ações ajudam a manter o equilíbrio dos ecossistemas.
-    </p>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <p>
-        Quando agricultores adotam métodos sustentáveis, eles contribuem para a qualidade
-        de vida das comunidades rurais e para a construção de um futuro mais responsável.
-    </p>
+```
+<title>Agro Forte, Futuro Sustentável</title>
 
-    <button onclick="mostrarInfo()">
-        Ver benefícios da sustentabilidade
-    </button>
+<link rel="stylesheet" href="style.css">
+```
 
-    <div id="info" class="oculto">
-        <ul>
-            <li>Preservação da água</li>
-            <li>Proteção do solo</li>
-            <li>Redução da poluição</li>
-            <li>Conservação da biodiversidade</li>
-            <li>Maior qualidade dos alimentos</li>
-        </ul>
-    </div>
+</head>
+
+<body>
+
+<header>
+    <h1>🌱 Agro Forte, Futuro Sustentável</h1>
+
+```
+<nav>
+    <a href="#producao">Produção</a>
+    <a href="#sustentabilidade">Sustentabilidade</a>
+    <a href="#tecnologia">Tecnologia</a>
+    <a href="#quiz">Quiz</a>
+</nav>
+```
+
+</header>
+
+<section class="banner">
+    <h2>Equilíbrio entre Produção e Meio Ambiente</h2>
+
+```
+<p>
+    O desenvolvimento sustentável é fundamental para garantir que a produção agrícola continue crescendo sem prejudicar os recursos naturais.
+</p>
+```
+
 </section>
+
+<main>
+
+<section id="producao">
+
+```
+<h2>🌾 Produção Agrícola</h2>
+
+<p>
+    O agronegócio é um dos principais pilares da economia brasileira. Ele fornece alimentos para milhões de pessoas e gera empregos em todo o país.
+</p>
+
+<p>
+    A agricultura moderna utiliza máquinas, sistemas de monitoramento e novas tecnologias para aumentar a produtividade e melhorar a qualidade dos alimentos produzidos.
+</p>
+
+<p>
+    O crescimento da produção deve ocorrer de forma responsável, garantindo a preservação do meio ambiente e a utilização consciente dos recursos naturais.
+</p>
+```
+
+</section>
+
+<section id="sustentabilidade">
+
+```
+<h2>🌳 Sustentabilidade no Campo</h2>
+
+<p>
+    A sustentabilidade busca equilibrar o desenvolvimento econômico com a proteção ambiental.
+</p>
+
+<p>
+    No campo, práticas sustentáveis ajudam a preservar a água, proteger o solo e conservar a biodiversidade.
+</p>
+
+<p>
+    Essas ações garantem que as futuras gerações também possam utilizar os recursos naturais de forma saudável e responsável.
+</p>
+
+<button onclick="mostrarInfo()">
+    Ver benefícios da sustentabilidade
+</button>
+
+<div id="info" class="oculto">
+
+    <ul>
+        <li>✔ Preservação da água</li>
+        <li>✔ Conservação do solo</li>
+        <li>✔ Proteção da biodiversidade</li>
+        <li>✔ Redução da poluição</li>
+        <li>✔ Produção mais eficiente</li>
+    </ul>
+
+</div>
+```
+
+</section>
+
+<section id="tecnologia">
+
+```
+<h2>🚜 Tecnologia no Agro</h2>
+
+<p>
+    A tecnologia tem transformado o campo e ajudado os produtores rurais a tomar decisões mais precisas.
+</p>
+
+<div class="cards">
+
+    <div class="card">
+        <h3>🚁 Drones</h3>
+
+        <p>
+            Monitoram as plantações e ajudam a identificar problemas rapidamente.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>📡 Sensores</h3>
+
+        <p>
+            Controlam a umidade do solo e auxiliam na irrigação inteligente.
+        </p>
+    </div>
+
+    <div class="card">
+        <h3>🤖 Inteligência Artificial</h3>
+
+        <p>
+            Analisa dados e auxilia os agricultores a produzirem mais com menos desperdício.
+        </p>
+    </div>
+
+</div>
+```
+
+</section>
+
+<section id="contador">
+
+```
+<h2>🌳 Árvores Preservadas</h2>
+
+<p>
+    Clique para simbolizar a preservação de árvores.
+</p>
+
+<p id="numero">0</p>
+
+<button onclick="adicionarArvore()">
+    Preservar Árvore
+</button>
+```
+
+</section>
+
+<section id="calculadora">
+
+```
+<h2>🌍 Calculadora Sustentável</h2>
+
+<p>
+    Digite a quantidade de árvores para estimar a absorção de CO₂.
+</p>
+
+<input
+    type="number"
+    id="arvores"
+    placeholder="Quantidade de árvores">
+
+<button onclick="calcularCO2()">
+    Calcular
+</button>
+
+<p id="resultado"></p>
+```
+
+</section>
+
+<section id="quiz">
+
+```
+<h2>🧠 Quiz Ambiental</h2>
+
+<p>
+    Qual prática contribui para a sustentabilidade no campo?
+</p>
+
+<button class="resposta" data-correta="false">
+    Queimar vegetação
+</button>
+
+<button class="resposta" data-correta="false">
+    Desmatamento
+</button>
+
+<button class="resposta" data-correta="true">
+    Plantio sustentável
+</button>
+
+<p id="quizResultado"></p>
+```
+
+</section>
+
+<section id="conclusao">
+
+```
+<h2>✅ Conclusão</h2>
+
+<p>
+    O futuro da agricultura depende do equilíbrio entre produção e preservação ambiental.
+</p>
+
+<p>
+    Com o uso da tecnologia e de práticas sustentáveis, é possível aumentar a produtividade sem comprometer os recursos naturais.
+</p>
+
+<p>
+    Um agro forte e sustentável é essencial para garantir alimentos, desenvolvimento econômico e qualidade de vida para toda a sociedade.
+</p>
+```
+
+</section>
+
+</main>
+
+<footer>
+
+```
+<h3>Créditos</h3>
+
+<p>Projeto desenvolvido para o Concurso Agrinho.</p>
+
+<p>Fontes utilizadas para pesquisa:</p>
+
+<ul>
+    <li>EMBRAPA</li>
+    <li>Programa Agrinho</li>
+    <li>Ministério da Agricultura</li>
+    <li>Sistema FAEP</li>
+</ul>
+
+<p>#agrinho</p>
+```
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
