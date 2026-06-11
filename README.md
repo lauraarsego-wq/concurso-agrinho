@@ -1,17 +1,12 @@
-# 🌾 Concurso Agrinho 2026 - Categoria Programação
+# 🌾 Concurso Agrinho 2026 - Portal Agro Sustentável
 
 ## 📋 Informações Gerais
 - **Subcategoria:** 3 - Programação Front-End (HTML, CSS e JavaScript)
 - **Tema:** "Agro forte, futuro sustentável: equilíbrio entre produção e meio ambiente"
 
-## 🛠️ Tecnologias e Funcionalidades Avançadas (Critérios de Desempate - Nível 4)
-1. **Estrutura Semântica Avançada:** Uso estrito de tags como `header`, `main`, `section` e `footer` organizadas logicamente.
-2. **Design Fluido e Responsivo:** Grid de visualização escalável para celulares, tablets e desktops via *CSS Grid Layout* e *Media Queries*.
-3. **Persistência de Dados via JavaScript (`localStorage`):** O jogo armazena localmente a pontuação recorde da instituição de ensino, permitindo competição saudável entre os alunos.
-4. **Manipulação Complexa do DOM:** Renderização em tempo real de uma **barra de progresso** de sustentabilidade e um **módulo de fatos ecológicos textuais** disparado no clique das cartas corretas.
-5. **Inclusão e Acessibilidade:** Recursos integrados via código para alteração do tamanho de fontes em tempo real e seletor global para **Modo Escuro**.
-
-## 🕹️ Como Jogar
-1. Acesse o endereço do site publicado no GitHub Pages.
-2. Insira o seu nome e inicie a partida.
-3. Encontre as combinações de sustentabilidade agrícola e leia as instruções informativas que surgirão na tela conforme ganha pontos!
+## 🛠️ Tecnologias e Implementações de Alta Complexidade (Critérios de Desempate)
+1. **Portal Multidisciplinar (Estrutura em Abas):** Utiliza lógica de JavaScript para ocultar/exibir seções completas, organizando o projeto em um Portal de Notícias Técnico e um Módulo de Jogos Educativos.
+2. **Filtro de Notícias Avançado:** Criação de um sistema onde a manipulação do DOM seleciona e renderiza dinamicamente as notícias com base nos botões de categorias clicados pelo usuário.
+3. **Placar com Persistência Local (`localStorage`):** Histórico gravado localmente para salvar a melhor pontuação de cliques entre as sessões escolares.
+4. **Interface Inclusiva (Acessibilidade):** Modificadores globais de estilo que dão suporte a Modo de Visualização Escuro e ajuste de fontes em tempo de execução.
+5. **Responsividade Sem Quebras:** Aplicação de *Grid Layouts* independentes para os artigos de notícias e cartões do jogo da memória, adaptando-se a qualquer smartphone ou monitor de mesa.
