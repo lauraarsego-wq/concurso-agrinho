@@ -1,252 +1,76 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agro Forte, Futuro Sustentável</title>
-
-```
-<link rel="stylesheet" href="style.css">
-```
-
+    <title>Agrinho 2026 - Agro Forte, Futuro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-
-<header>
-
-```
-<div class="logo">
-    🌱 AGRO FORTE
-</div>
-
-<nav>
-    <a href="#inicio">Início</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#tecnologia">Tecnologia</a>
-    <a href="#sustentabilidade">Sustentabilidade</a>
-    <a href="#quiz">Quiz</a>
-</nav>
-```
-
-</header>
-
-<section id="inicio" class="hero">
-
-```
-<div class="hero-texto">
-
-    <h1>Agro Forte, Futuro Sustentável</h1>
-
-    <p>
-        O desenvolvimento do agronegócio aliado à preservação ambiental
-        é essencial para garantir alimento, renda e qualidade de vida
-        para as futuras gerações.
-    </p>
-
-    <button onclick="mostrarMensagem()">
-        Descobrir Mais
-    </button>
-
-    <p id="mensagem"></p>
-
-</div>
-```
-
-</section>
-
-<section id="sobre">
-
-```
-<h2>🌾 O Agro Move o Brasil</h2>
-
-<p>
-    O agronegócio brasileiro é um dos mais importantes do mundo.
-    Além de produzir alimentos para milhões de pessoas, o setor gera
-    empregos, movimenta a economia e contribui para o desenvolvimento
-    de diversas regiões do país.
-</p>
-
-<p>
-    Atualmente, a tecnologia permite que a produção seja cada vez mais
-    eficiente, reduzindo desperdícios e aumentando a produtividade de
-    maneira responsável.
-</p>
-```
-
-</section>
-
-<section class="estatisticas">
-
-```
-<div class="card-estatistica">
-    <h3 id="contador1">0</h3>
-    <p>Tecnologias Sustentáveis</p>
-</div>
-
-<div class="card-estatistica">
-    <h3 id="contador2">0</h3>
-    <p>Projetos Ambientais</p>
-</div>
-
-<div class="card-estatistica">
-    <h3 id="contador3">0</h3>
-    <p>Áreas Preservadas</p>
-</div>
-```
-
-</section>
-
-<section id="tecnologia">
-
-```
-<h2>🚜 Tecnologia no Campo</h2>
-
-<div class="cards">
-
-    <div class="card">
-        <h3>🚁 Drones Agrícolas</h3>
-
-        <p>
-            Monitoram plantações, detectam pragas e ajudam na tomada
-            de decisões rápidas e eficientes.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>📡 Sensores Inteligentes</h3>
-
-        <p>
-            Medem a umidade do solo e auxiliam no uso consciente da água.
-        </p>
-    </div>
-
-    <div class="card">
-        <h3>🤖 Inteligência Artificial</h3>
-
-        <p>
-            Analisa grandes quantidades de dados e auxilia na previsão
-            de safras e produtividade.
-        </p>
-    </div>
-
-</div>
-```
-
-</section>
-
-<section id="sustentabilidade">
-
-```
-<h2>🌳 Sustentabilidade Ambiental</h2>
-
-<p>
-    Produzir alimentos e preservar o meio ambiente devem caminhar juntos.
-    A sustentabilidade promove práticas que protegem a água, o solo e
-    a biodiversidade.
-</p>
-
-<button onclick="mostrarBeneficios()">
-    Ver Benefícios
-</button>
-
-<div id="beneficios" class="oculto">
-
-    <ul>
-        <li>✔ Conservação dos recursos naturais</li>
-        <li>✔ Menor impacto ambiental</li>
-        <li>✔ Produção mais eficiente</li>
-        <li>✔ Preservação da fauna e flora</li>
-        <li>✔ Melhor qualidade de vida</li>
-    </ul>
-
-</div>
-```
-
-</section>
-
-<section class="calculadora">
-
-```
-<h2>🌍 Calculadora Verde</h2>
-
-<p>
-    Digite quantas árvores foram preservadas:
-</p>
-
-<input type="number" id="arvores">
-
-<button onclick="calcularImpacto()">
-    Calcular
-</button>
-
-<p id="resultado"></p>
-```
-
-</section>
-
-<section id="quiz">
-
-```
-<h2>🧠 Quiz do Agro Sustentável</h2>
-
-<p>
-    Qual dessas práticas ajuda a preservar o meio ambiente?
-</p>
-
-<button class="resposta" data-correta="false">
-    Desmatamento
-</button>
-
-<button class="resposta" data-correta="false">
-    Queimadas
-</button>
-
-<button class="resposta" data-correta="true">
-    Plantio Sustentável
-</button>
-
-<p id="quizResultado"></p>
-```
-
-</section>
-
-<section class="conclusao">
-
-```
-<h2>🌎 Construindo o Futuro</h2>
-
-<p>
-    O futuro da agricultura depende do equilíbrio entre produtividade
-    e preservação ambiental. A união entre tecnologia e sustentabilidade
-    garante um planeta mais saudável para todos.
-</p>
-```
-
-</section>
-
-<footer>
-
-```
-<h3>Créditos</h3>
-
-<p>
-    Projeto desenvolvido para o Concurso Agrinho.
-</p>
-
-<p>
-    Pesquisas realizadas em materiais educativos sobre agricultura
-    sustentável, tecnologia no campo e preservação ambiental.
-</p>
-
-<p><strong>#agrinho</strong></p>
-```
-
-</footer>
-
-<script src="script.js"></script>
-
+    <!-- Cabeçalho Semântico -->
+    <header>
+        <div class="header-container">
+            <h1>Agro Forte, Futuro Sustentável</h1>
+            <p class="subtitle">Equilíbrio entre Produção e Meio Ambiente</p>
+        </div>
+        <!-- Painel de Acessibilidade e Melhoria do Usuário -->
+        <div class="accessibility-panel">
+            <button id="toggle-dark-mode" aria-label="Alternar Modo Escuro">🌓 Modo Escuro</button>
+            <div class="font-controls">
+                <button id="font-decrease" aria-label="Diminuir Fonte">A-</button>
+                <button id="font-increase" aria-label="Aumentar Fonte">A+</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main>
+        <!-- Seção de Identificação (Uso de variáveis no JS) -->
+        <section id="welcome-section" class="card-panel">
+            <h2>Bem-vindo ao Desafio Sustentável</h2>
+            <p>Descubra como equilibrar a produtividade no campo com a conservação da nossa natureza.</p>
+            <div class="form-group">
+                <label for="username-input">Digite seu nome para iniciar:</label>
+                <input type="text" id="username-input" placeholder="Seu nome aqui..." autocomplete="off">
+                <button id="start-game-btn">Entrar e Jogar</button>
+            </div>
+            <p id="greeting-text" class="hidden"></p>
+        </section>
+
+        <!-- Seção do Jogo Interativo (Inicialmente Oculta) -->
+        <section id="game-section" class="card-panel hidden">
+            <div class="game-score-board">
+                <p>Jogador: <strong id="player-display"></strong></p>
+                <p>Tentativas: <span id="moves-counter">0</span></p>
+                <p>Acertos: <span id="matches-counter">0</span>/6</p>
+            </div>
+
+            <!-- Tabuleiro do Jogo da Memória -->
+            <div class="memory-game-grid" id="game-grid">
+                <!-- Os cartões serão gerados dinamicamente via JavaScript -->
+            </div>
+
+            <div class="game-controls">
+                <button id="reset-game-btn">Reiniciar Jogo</button>
+            </div>
+        </section>
+
+        <!-- Mensagem de Vitória de Fim de Jogo -->
+        <section id="victory-screen" class="card-panel hidden">
+            <h2>🎉 Parabéns, Você Venceu!</h2>
+            <p id="victory-message"></p>
+            <p>Você provou que entende tudo sobre o equilíbrio entre produção agrícola e preservação ambiental!</p>
+            <button id="restart-victory-btn">Jogar Novamente</button>
+        </section>
+    </main>
+
+    <!-- Rodapé Semântico com Créditos Obrigatórios -->
+    <footer>
+        <p>&copy; 2026 - Concurso Agrinho. Categoria Programação (Subcategoria 3).</p>
+        <p>Desenvolvido com fins educacionais seguindo as diretrizes de sustentabilidade do campo.</p>
+    </footer>
+
+    <!-- Script JavaScript no final do Body -->
+    <script src="script.js"></script>
 </body>
 </html>
