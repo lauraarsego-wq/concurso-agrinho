@@ -1,4 +1,3 @@
-/* Variáveis do CSS para gerenciamento de temas (Claro/Escuro) */
 :root {
     --bg-primary: #f4f7f5;
     --bg-card: #ffffff;
@@ -11,7 +10,6 @@
     --transition-speed: 0.3s;
 }
 
-/* Classe aplicada via JS para o Modo Escuro */
 .dark-mode {
     --bg-primary: #1a252f;
     --bg-card: #2c3e50;
@@ -22,7 +20,6 @@
     --card-flipped-bg: #1e4620;
 }
 
-/* Configurações Gerais e Responsividade Base */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -41,7 +38,6 @@ body {
     min-height: 100vh;
 }
 
-/* Cabeçalho com Layout Flexbox */
 header {
     background-color: var(--bg-card);
     border-bottom: 3px solid var(--accent-color);
@@ -59,11 +55,9 @@ header {
     margin-bottom: 0.25rem;
 }
 
-/* Painel de Acessibilidade */
 .accessibility-panel {
     display: flex;
     gap: 0.5rem;
-    align-items: center;
 }
 
 button {
@@ -82,16 +76,10 @@ button:hover {
     background-color: var(--accent-hover);
 }
 
-button:active {
-    transform: scale(0.98);
-}
-
 .font-controls button {
     padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
 }
 
-/* Área Principal em Grid Layout */
 main {
     flex: 1;
     max-width: 800px;
@@ -100,7 +88,6 @@ main {
     padding: 0 1rem;
 }
 
-/* Painéis de Conteúdo Estilizados */
 .card-panel {
     background-color: var(--bg-card);
     border: 1px solid var(--border-color);
@@ -109,6 +96,16 @@ main {
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
     text-align: center;
     margin-bottom: 1.5rem;
+}
+
+/* Caixa de Recordes */
+.high-score-box {
+    background-color: var(--bg-primary);
+    padding: 0.8rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    border-left: 4px solid var(--accent-color);
+    font-weight: 500;
 }
 
 .form-group {
@@ -127,20 +124,59 @@ input[type="text"] {
     border-radius: 6px;
     background-color: var(--bg-primary);
     color: var(--text-main);
-    font-size: 1rem;
 }
 
-/* Placar do Jogo */
 .game-score-board {
     display: flex;
     justify-content: space-around;
     font-size: 1.2rem;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px dashed var(--border-color);
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
 }
 
-/* Grid Responsivo do Jogo da Memória */
+/* Nova Barra de Progresso */
+.progress-container {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+.progress-container label {
+    font-size: 0.95rem;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.4rem;
+}
+.progress-bar-bg {
+    background-color: var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    height: 24px;
+}
+.progress-bar-fill {
+    background-color: var(--accent-color);
+    color: white;
+    width: 0%;
+    height: 100%;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: bold;
+    line-height: 24px;
+    transition: width 0.4rem ease;
+}
+
+/* Novo Painel Educativo Dinâmico */
+.fact-box {
+    background-color: var(--card-flipped-bg);
+    border: 2px dashed var(--accent-color);
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    text-align: left;
+    animation: fadeIn 0.4s ease;
+}
+.fact-box h3 {
+    color: var(--accent-hover);
+    margin-bottom: 0.25rem;
+}
+
 .memory-game-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -148,7 +184,6 @@ input[type="text"] {
     margin-bottom: 1.5rem;
 }
 
-/* Elemento de Cartão do Jogo */
 .memory-card {
     aspect-ratio: 1;
     background-color: var(--accent-color);
@@ -163,7 +198,6 @@ input[type="text"] {
     transition: background-color var(--transition-speed), transform 0.2s ease;
 }
 
-/* Cartão quando virado ou par encontrado */
 .memory-card.flipped, .memory-card.matched {
     background-color: var(--card-flipped-bg);
     color: initial;
@@ -175,12 +209,13 @@ input[type="text"] {
     cursor: default;
 }
 
-/* Utilitários Globais */
-.hidden {
-    display: none !important;
+.hidden { display: none !important; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Rodapé */
 footer {
     background-color: var(--bg-card);
     text-align: center;
@@ -190,20 +225,7 @@ footer {
     margin-top: auto;
 }
 
-/* Media Queries para Responsividade em Dispositivos Móveis e Tablets */
 @media (max-width: 600px) {
-    header {
-        flex-direction: column;
-    }
-    .memory-game-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 0.5rem;
-    }
-    .memory-card {
-        font-size: 2rem;
-    }
-    .game-score-board {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
+    .memory-game-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+    .memory-card { font-size: 2rem; }
 }
