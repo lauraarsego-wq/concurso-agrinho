@@ -3,19 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Agro Forte, Futuro Sustentável</title>
+    <title>Agrinho 2026 - Desafio Agro Sustentável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Cabeçalho Semântico -->
     <header>
         <div class="header-container">
             <h1>Agro Forte, Futuro Sustentável</h1>
             <p class="subtitle">Equilíbrio entre Produção e Meio Ambiente</p>
         </div>
-        <!-- Painel de Acessibilidade e Melhoria do Usuário -->
         <div class="accessibility-panel">
-            <button id="toggle-dark-mode" aria-label="Alternar Modo Escuro">🌓 Modo Escuro</button>
+            <button id="toggle-dark-mode" aria-label="Alternar Modo Escuro">Modo Escuro 🌓</button>
             <div class="font-controls">
                 <button id="font-decrease" aria-label="Diminuir Fonte">A-</button>
                 <button id="font-increase" aria-label="Aumentar Fonte">A+</button>
@@ -23,54 +21,68 @@
         </div>
     </header>
 
-    <!-- Conteúdo Principal -->
     <main>
-        <!-- Seção de Identificação (Uso de variáveis no JS) -->
+        <!-- Painel de Boas-Vindas com Histórico de Recorde -->
         <section id="welcome-section" class="card-panel">
             <h2>Bem-vindo ao Desafio Sustentável</h2>
-            <p>Descubra como equilibrar a produtividade no campo com a conservação da nossa natureza.</p>
+            <p>Descubra como equilibrar a produtividade no campo com a conservação da natureza.</p>
+            
+            <div id="high-score-display" class="high-score-box">
+                <!-- Carregado via JS -->
+            </div>
+
             <div class="form-group">
                 <label for="username-input">Digite seu nome para iniciar:</label>
                 <input type="text" id="username-input" placeholder="Seu nome aqui..." autocomplete="off">
                 <button id="start-game-btn">Entrar e Jogar</button>
             </div>
-            <p id="greeting-text" class="hidden"></p>
         </section>
 
-        <!-- Seção do Jogo Interativo (Inicialmente Oculta) -->
+        <!-- Seção do Jogo Expandida -->
         <section id="game-section" class="card-panel hidden">
             <div class="game-score-board">
                 <p>Jogador: <strong id="player-display"></strong></p>
                 <p>Tentativas: <span id="moves-counter">0</span></p>
-                <p>Acertos: <span id="matches-counter">0</span>/6</p>
+                <p>Pares Encontrados: <span id="matches-counter">0</span>/6</p>
             </div>
 
-            <!-- Tabuleiro do Jogo da Memória -->
+            <!-- Barra de Progresso do Equilíbrio Ambiental -->
+            <div class="progress-container">
+                <label for="game-progress">Índice de Sustentabilidade da Fazenda:</label>
+                <div class="progress-bar-bg">
+                    <div id="game-progress" class="progress-bar-fill">0%</div>
+                </div>
+            </div>
+
+            <!-- Painel Informativo Dinâmico (Explica a prática sustentável descoberta) -->
+            <div id="edu-fact-box" class="fact-box hidden">
+                <h3 id="fact-title"></h3>
+                <p id="fact-description"></p>
+            </div>
+
             <div class="memory-game-grid" id="game-grid">
-                <!-- Os cartões serão gerados dinamicamente via JavaScript -->
+                <!-- Cartões gerados via JS -->
             </div>
 
             <div class="game-controls">
-                <button id="reset-game-btn">Reiniciar Jogo</button>
+                <button id="reset-game-btn">Reiniciar Tabuleiro</button>
             </div>
         </section>
 
-        <!-- Mensagem de Vitória de Fim de Jogo -->
+        <!-- Tela de Vitória -->
         <section id="victory-screen" class="card-panel hidden">
-            <h2>🎉 Parabéns, Você Venceu!</h2>
+            <h2>🎉 Parabéns, Fazenda Sustentável Concluída!</h2>
             <p id="victory-message"></p>
-            <p>Você provou que entende tudo sobre o equilíbrio entre produção agrícola e preservação ambiental!</p>
+            <p class="congrats-text">Você provou que entende tudo sobre o equilíbrio entre produção e preservação!</p>
             <button id="restart-victory-btn">Jogar Novamente</button>
         </section>
     </main>
 
-    <!-- Rodapé Semântico com Créditos Obrigatórios -->
     <footer>
         <p>&copy; 2026 - Concurso Agrinho. Categoria Programação (Subcategoria 3).</p>
         <p>Desenvolvido com fins educacionais seguindo as diretrizes de sustentabilidade do campo.</p>
     </footer>
 
-    <!-- Script JavaScript no final do Body -->
     <script src="script.js"></script>
 </body>
 </html>
