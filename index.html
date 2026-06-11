@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agrinho 2026 - Desafio Agro Sustentável</title>
+    <title>Agrinho 2026 - Portal Agro Sustentável</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,11 +21,36 @@
         </div>
     </header>
 
+    <!-- Menu de Navegação Semântico -->
+    <nav class="main-navigation">
+        <button id="nav-news-btn" class="nav-link active">📰 Últimas Notícias</button>
+        <button id="nav-game-btn" class="nav-link">🎮 Jogo do Equilíbrio</button>
+    </nav>
+
     <main>
-        <!-- Painel de Boas-Vindas com Histórico de Recorde -->
-        <section id="welcome-section" class="card-panel">
-            <h2>Bem-vindo ao Desafio Sustentável</h2>
-            <p>Descubra como equilibrar a produtividade no campo com a conservação da natureza.</p>
+        <!-- SEÇÃO 1: PORTAL DE NOTÍCIAS (Nova Seção para nota máxima) -->
+        <section id="news-section" class="card-panel">
+            <h2>Feed de Notícias: Sustentabilidade no Campo</h2>
+            <p class="section-intro">Fique por dentro das principais inovações ecológicas que unem produtividade e proteção ambiental.</p>
+            
+            <!-- Botões Filtros Dinâmicos gerenciados por JS -->
+            <div class="filter-container">
+                <span class="filter-label">Filtrar por:</span>
+                <button class="filter-btn active" data-category="all">Todas</button>
+                <button class="filter-btn" data-category="tech">Tecnologia</button>
+                <button class="filter-btn" data-category="nature">Meio Ambiente</button>
+            </div>
+
+            <!-- Grid de Notícias Gerado Dinamicamente -->
+            <div id="news-grid" class="news-layout-grid">
+                <!-- Inserido via JavaScript -->
+            </div>
+        </section>
+
+        <!-- SEÇÃO 2: PAINEL DE ENTRADA DO JOGO -->
+        <section id="welcome-section" class="card-panel hidden">
+            <h2>Bem-vindo ao Desafio da Memória</h2>
+            <p>Conecte os pares corretos para construir uma fazenda moderna e ecológica.</p>
             
             <div id="high-score-display" class="high-score-box">
                 <!-- Carregado via JS -->
@@ -38,15 +63,14 @@
             </div>
         </section>
 
-        <!-- Seção do Jogo Expandida -->
+        <!-- SEÇÃO 3: ÁREA DO JOGO ATIVA -->
         <section id="game-section" class="card-panel hidden">
             <div class="game-score-board">
                 <p>Jogador: <strong id="player-display"></strong></p>
                 <p>Tentativas: <span id="moves-counter">0</span></p>
-                <p>Pares Encontrados: <span id="matches-counter">0</span>/6</p>
+                <p>Acertos: <span id="matches-counter">0</span>/6</p>
             </div>
 
-            <!-- Barra de Progresso do Equilíbrio Ambiental -->
             <div class="progress-container">
                 <label for="game-progress">Índice de Sustentabilidade da Fazenda:</label>
                 <div class="progress-bar-bg">
@@ -54,14 +78,13 @@
                 </div>
             </div>
 
-            <!-- Painel Informativo Dinâmico (Explica a prática sustentável descoberta) -->
             <div id="edu-fact-box" class="fact-box hidden">
                 <h3 id="fact-title"></h3>
                 <p id="fact-description"></p>
             </div>
 
             <div class="memory-game-grid" id="game-grid">
-                <!-- Cartões gerados via JS -->
+                <!-- Cartões via JS -->
             </div>
 
             <div class="game-controls">
@@ -69,11 +92,11 @@
             </div>
         </section>
 
-        <!-- Tela de Vitória -->
+        <!-- SEÇÃO 4: TELA DE VITÓRIA -->
         <section id="victory-screen" class="card-panel hidden">
-            <h2>🎉 Parabéns, Fazenda Sustentável Concluída!</h2>
+            <h2>🎉 Parabéns, Missão Cumprida!</h2>
             <p id="victory-message"></p>
-            <p class="congrats-text">Você provou que entende tudo sobre o equilíbrio entre produção e preservação!</p>
+            <p>Você é um verdadeiro embaixador do futuro sustentável!</p>
             <button id="restart-victory-btn">Jogar Novamente</button>
         </section>
     </main>
