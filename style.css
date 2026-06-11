@@ -1,203 +1,209 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+/* Variáveis do CSS para gerenciamento de temas (Claro/Escuro) */
+:root {
+    --bg-primary: #f4f7f5;
+    --bg-card: #ffffff;
+    --text-main: #2c3e50;
+    --accent-color: #27ae60;
+    --accent-hover: #219653;
+    --border-color: #e0e0e0;
+    --card-flipped-bg: #e8f5e9;
+    --font-base-size: 16px;
+    --transition-speed: 0.3s;
 }
 
-html{
-scroll-behavior:smooth;
+/* Classe aplicada via JS para o Modo Escuro */
+.dark-mode {
+    --bg-primary: #1a252f;
+    --bg-card: #2c3e50;
+    --text-main: #ecf0f1;
+    --accent-color: #2ecc71;
+    --accent-hover: #27ae60;
+    --border-color: #34495e;
+    --card-flipped-bg: #1e4620;
 }
 
-body{
-font-family:'Segoe UI',sans-serif;
-background:#f4f7f2;
-color:#333;
+/* Configurações Gerais e Responsividade Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
-header{
-background:linear-gradient(90deg,#1b5e20,#43a047);
-padding:20px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-position:sticky;
-top:0;
-z-index:100;
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: var(--font-base-size);
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.logo{
-color:white;
-font-size:28px;
-font-weight:bold;
+/* Cabeçalho com Layout Flexbox */
+header {
+    background-color: var(--bg-card);
+    border-bottom: 3px solid var(--accent-color);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
 }
 
-nav a{
-color:white;
-text-decoration:none;
-margin-left:20px;
-font-weight:bold;
-transition:.3s;
+.header-container h1 {
+    color: var(--accent-color);
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
 }
 
-nav a:hover
-
-.hero{
-height:90vh;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-background:linear-gradient(
-rgba(0,0,0,.5),
-rgba(0,0,0,.5)),
-url("https://images.unsplash.com/photo-1500937386664-56d1dfef3854");
-background-size:cover;
-background-position:center;
-color:white;
-padding:30px;
+/* Painel de Acessibilidade */
+.accessibility-panel {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
 }
 
-.hero h1{
-font-size:60px;
-margin-bottom:20px;
+button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed), transform 0.1s ease;
 }
 
-.hero p{
-font-size:22px;
-max-width:800px;
-margin:auto;
+button:hover {
+    background-color: var(--accent-hover);
 }
 
-.hero button{
-margin-top:25px;
+button:active {
+    transform: scale(0.98);
 }
 
-section{
-padding:80px 10%;
+.font-controls button {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
 }
 
-h2{
-text-align:center;
-margin-bottom:30px;
-color:#2e7d32;
-font-size:36px;
+/* Área Principal em Grid Layout */
+main {
+    flex: 1;
+    max-width: 800px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 0 1rem;
 }
 
-.cards{
-display:flex;
-flex-wrap:wrap;
-gap:20px;
+/* Painéis de Conteúdo Estilizados */
+.card-panel {
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    text-align: center;
+    margin-bottom: 1.5rem;
 }
 
-.card{
-flex:1;
-min-width:250px;
-background:white;
-padding:25px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.15);
-transition:.4s;
+.form-group {
+    margin: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-.card:hover{
-transform:translateY(-10px);
+input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-size: 1rem;
 }
 
-.estatisticas{
-display:flex;
-justify-content:center;
-gap:30px;
-flex-wrap:wrap;
-background:#e8f5e9;
+/* Placar do Jogo */
+.game-score-board {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px dashed var(--border-color);
+    padding-bottom: 1rem;
 }
 
-.card-estatistica{
-background:white;
-width:250px;
-padding:30px;
-text-align:center;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.1);
+/* Grid Responsivo do Jogo da Memória */
+.memory-game-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
 }
 
-.card-estatistica h3{
-font-size:50px;
-color:#2e7d32;
+/* Elemento de Cartão do Jogo */
+.memory-card {
+    aspect-ratio: 1;
+    background-color: var(--accent-color);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5rem;
+    color: transparent;
+    user-select: none;
+    transition: background-color var(--transition-speed), transform 0.2s ease;
 }
 
-button{
-background:#2e7d32;
-color:white;
-border:none;
-padding:12px 25px;
-border-radius:8px;
-cursor:pointer;
-transition:.3s;
+/* Cartão quando virado ou par encontrado */
+.memory-card.flipped, .memory-card.matched {
+    background-color: var(--card-flipped-bg);
+    color: initial;
+    transform: rotateY(180deg);
 }
 
-button:hover
-
-input{
-width:250px;
-padding:12px;
-border:2px solid #4caf50;
-border-radius:8px;
+.memory-card.matched {
+    border: 3px solid #2ecc71;
+    cursor: default;
 }
 
-.calculadora{
-text-align:center;
+/* Utilitários Globais */
+.hidden {
+    display: none !important;
 }
 
-#quiz{
-text-align:center;
+/* Rodapé */
+footer {
+    background-color: var(--bg-card);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
 }
 
-#quiz button{
-display:block;
-margin:10px auto;
-width:250px;
-}
-
-#quizResultado{
-font-size:22px;
-margin-top:15px;
-font-weight:bold;
-}
-
-.oculto{
-display:none;
-}
-
-footer{
-background:#1b1b1b;
-color:white;
-text-align:center;
-padding:40px;
-}
-
-@media(max-width:768px){
-
-```
-header{
-    flex-direction:column;
-}
-
-nav{
-    margin-top:15px;
-}
-
-nav a{
-    display:block;
-    margin:10px;
-}
-
-.hero h1{
-    font-size:38px;
-}
-
-.cards{
-    flex-direction:column;
-}
-```
-
+/* Media Queries para Responsividade em Dispositivos Móveis e Tablets */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;
+    }
+    .memory-game-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.5rem;
+    }
+    .memory-card {
+        font-size: 2rem;
+    }
+    .game-score-board {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
 }
