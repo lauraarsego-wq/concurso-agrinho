@@ -52,12 +52,30 @@ header {
 .header-container h1 {
     color: var(--accent-color);
     font-size: 2rem;
-    margin-bottom: 0.25rem;
 }
 
-.accessibility-panel {
+.accessibility-panel { display: flex; gap: 0.5rem; }
+
+/* Menu de Navegação Superior */
+.main-navigation {
     display: flex;
-    gap: 0.5rem;
+    justify-content: center;
+    background-color: var(--bg-card);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-link {
+    background: none;
+    color: var(--text-main);
+    padding: 1rem 2rem;
+    border-radius: 0;
+    font-weight: 600;
+}
+
+.nav-link:hover { background-color: var(--bg-primary); }
+.nav-link.active {
+    color: var(--accent-color);
+    border-bottom: 4px solid var(--accent-color);
 }
 
 button {
@@ -69,22 +87,18 @@ button {
     font-weight: bold;
     border-radius: 6px;
     cursor: pointer;
-    transition: background-color var(--transition-speed), transform 0.1s ease;
+    transition: background-color var(--transition-speed);
 }
 
-button:hover {
-    background-color: var(--accent-hover);
-}
+button:hover { background-color: var(--accent-hover); }
 
-.font-controls button {
-    padding: 0.4rem 0.8rem;
-}
+.font-controls button { padding: 0.4rem 0.8rem; }
 
 main {
     flex: 1;
-    max-width: 800px;
+    max-width: 900px;
     width: 100%;
-    margin: 2rem auto;
+    margin: 1.5rem auto;
     padding: 0 1rem;
 }
 
@@ -94,138 +108,91 @@ main {
     border-radius: 12px;
     padding: 2rem;
     box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-    text-align: center;
     margin-bottom: 1.5rem;
 }
 
-/* Caixa de Recordes */
+.section-intro { margin-bottom: 1.5rem; text-align: center; color: var(--text-main); opacity: 0.9; }
+
+/* Controles de Filtros de Notícias */
+.filter-container {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    justify-content: center;
+}
+.filter-label { font-weight: bold; font-size: 0.95rem; }
+.filter-btn { background-color: var(--border-color); color: var(--text-main); padding: 0.4rem 1rem; font-size: 0.9rem; }
+.filter-btn.active { background-color: var(--accent-color); color: white; }
+
+/* Grid de Layout de Notícias */
+.news-layout-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    text-align: left;
+}
+
+.news-card {
+    background-color: var(--bg-primary);
+    border-radius: 8px;
+    padding: 1.25rem;
+    border-top: 4px solid var(--accent-color);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.news-tag {
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: var(--accent-hover);
+}
+.news-card h3 { font-size: 1.2rem; line-height: 1.3; }
+.news-card p { font-size: 0.95rem; opacity: 0.85; }
+
+/* Estruturas do Jogo */
 .high-score-box {
     background-color: var(--bg-primary);
     padding: 0.8rem;
     border-radius: 8px;
-    margin: 1rem 0;
+    margin: 1rem auto;
+    max-width: 400px;
     border-left: 4px solid var(--accent-color);
-    font-weight: 500;
-}
-
-.form-group {
-    margin: 1.5rem 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.75rem;
-}
-
-input[type="text"] {
-    width: 100%;
-    max-width: 300px;
-    padding: 0.75rem;
-    border: 2px solid var(--border-color);
-    border-radius: 6px;
-    background-color: var(--bg-primary);
-    color: var(--text-main);
-}
-
-.game-score-board {
-    display: flex;
-    justify-content: space-around;
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
-}
-
-/* Nova Barra de Progresso */
-.progress-container {
-    margin-bottom: 1.5rem;
-    text-align: left;
-}
-.progress-container label {
-    font-size: 0.95rem;
-    font-weight: bold;
-    display: block;
-    margin-bottom: 0.4rem;
-}
-.progress-bar-bg {
-    background-color: var(--border-color);
-    border-radius: 20px;
-    overflow: hidden;
-    height: 24px;
-}
-.progress-bar-fill {
-    background-color: var(--accent-color);
-    color: white;
-    width: 0%;
-    height: 100%;
     text-align: center;
-    font-size: 0.85rem;
-    font-weight: bold;
-    line-height: 24px;
-    transition: width 0.4rem ease;
 }
 
-/* Novo Painel Educativo Dinâmico */
-.fact-box {
-    background-color: var(--card-flipped-bg);
-    border: 2px dashed var(--accent-color);
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1.5rem;
-    text-align: left;
-    animation: fadeIn 0.4s ease;
-}
-.fact-box h3 {
-    color: var(--accent-hover);
-    margin-bottom: 0.25rem;
-}
+.form-group { margin: 1.5rem 0; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; }
+input[type="text"] { width: 100%; max-width: 300px; padding: 0.75rem; border: 2px solid var(--border-color); border-radius: 6px; background-color: var(--bg-primary); color: var(--text-main); }
 
-.memory-game-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-}
+.game-score-board { display: flex; justify-content: space-around; font-size: 1.2rem; margin-bottom: 1rem; font-weight: bold; }
 
-.memory-card {
-    aspect-ratio: 1;
-    background-color: var(--accent-color);
-    border-radius: 8px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.5rem;
-    color: transparent;
-    user-select: none;
-    transition: background-color var(--transition-speed), transform 0.2s ease;
-}
+.progress-container { margin-bottom: 1.5rem; }
+.progress-container label { font-size: 0.95rem; font-weight: bold; display: block; margin-bottom: 0.4rem; }
+.progress-bar-bg { background-color: var(--border-color); border-radius: 20px; overflow: hidden; height: 24px; }
+.progress-bar-fill { background-color: var(--accent-color); color: white; width: 0%; height: 100%; text-align: center; font-size: 0.85rem; font-weight: bold; line-height: 24px; transition: width 0.3s ease; }
 
-.memory-card.flipped, .memory-card.matched {
-    background-color: var(--card-flipped-bg);
-    color: initial;
-    transform: rotateY(180deg);
-}
+.fact-box { background-color: var(--card-flipped-bg); border: 2px dashed var(--accent-color); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; }
+.fact-box h3 { color: var(--accent-hover); margin-bottom: 0.25rem; }
 
-.memory-card.matched {
-    border: 3px solid #2ecc71;
-    cursor: default;
-}
+.memory-game-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.memory-card { aspect-ratio: 1; background-color: var(--accent-color); border-radius: 8px; cursor: pointer; display: flex; justify-content: center; align-items: center; font-size: 2.5rem; color: transparent; user-select: none; transition: transform 0.2s ease, background-color 0.2s; }
+.memory-card.flipped, .memory-card.matched { background-color: var(--card-flipped-bg); color: initial; transform: rotateY(180deg); }
+.memory-card.matched { border: 3px solid #2ecc71; cursor: default; }
 
 .hidden { display: none !important; }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-footer {
-    background-color: var(--bg-card);
-    text-align: center;
-    padding: 1.5rem;
-    font-size: 0.9rem;
-    border-top: 1px solid var(--border-color);
-    margin-top: auto;
-}
+footer { background-color: var(--bg-card); text-align: center; padding: 1.5rem; font-size: 0.9rem; border-top: 1px solid var(--border-color); margin-top: auto; }
 
-@media (max-width: 600px) {
+@media (max-width: 650px) {
+    .news-layout-grid { grid-template-columns: 1fr; }
     .memory-game-grid { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
     .memory-card { font-size: 2rem; }
 }
