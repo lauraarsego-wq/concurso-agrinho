@@ -1,178 +1,219 @@
-// Banco de dados expandido com informações ecológicas para os critérios de desempate
+// Base de dados das Notícias com Tags Temáticas
+const newsData = [
+    {
+        id: 1,
+        category: "tech",
+        tag: "Tecnologia no Campo",
+        title: "Drones e Sensores ajudam produtores do PR a economizar água",
+        excerpt: "Novos sistemas de monitoramento via satélite geram economia de insumos e reduzem impacto ambiental nas lavouras paranaenses."
+    },
+    {
+        id: 2,
+        category: "nature",
+        tag: "Meio Ambiente",
+        title: "Fazendas do Paraná batem recorde em recuperação de Matas Ciliares",
+        excerpt: "A união entre tecnologia e proteção florestal garante rios mais limpos e preserva a biodiversidade ao redor de áreas produtivas."
+    },
+    {
+        id: 3,
+        category: "tech",
+        tag: "Energia Limpa",
+        title: "Cresce o uso de painéis solares para alimentar maquinários rurais",
+        excerpt: "Propriedades investem em matrizes renováveis, mostrando que a produção forte caminha lado a lado com a pegada de carbono zero."
+    },
+    {
+        id: 4,
+        category: "nature",
+        tag: "Bioinsumos",
+        title: "Controle biológico reduz em 40% a necessidade de defensivos agrícolas",
+        excerpt: "Pesquisas locais comprovam que o uso de predadores naturais protege a lavoura mantendo o equilíbrio ecológico do solo nativo."
+    }
+];
+
+// Base de dados do Jogo da Memória
 const agroItems = [
-    { id: 1, symbol: '🌱', name: 'Plantio Direto', desc: 'Evita a erosão mantendo a palha da colheita anterior protegendo o solo.' },
-    { id: 2, symbol: '💧', name: 'Irrigação por Gotejamento', desc: 'Direciona a água direto na raiz da planta, reduzindo o desperdício em até 60%.' },
-    { id: 3, symbol: '🚜', name: 'Trator Elétrico / Biocombustível', desc: 'Reduz a emissão de gases de efeito estufa nos trabalhos de campo diários.' },
-    { id: 4, symbol: '🐞', name: 'Controle Biológico', desc: 'Usa insetos benéficos para combater pragas, evitando pesticidas químicos poluentes.' },
-    { id: 5, symbol: '☀️', name: 'Energia Solar Rural', desc: 'Garante autonomia elétrica limpa para cercas, bombeamento e silos produtivos.' },
-    { id: 6, symbol: '🌳', name: 'Reserva Legal Protegida', desc: 'Mantém matas nativas preservadas que purificam a água e protegem os animais silvestre.' }
+    { id: 1, symbol: '🌱', name: 'Plantio Direto', desc: 'Evita a erosão mantendo a cobertura orgânica e a palha da colheita protetora.' },
+    { id: 2, symbol: '💧', name: 'Irrigação Eficiente', desc: 'Direciona a água de forma exata para a raiz, eliminando desperdícios no lençol freático.' },
+    { id: 3, symbol: '🚜', name: 'Maquinário de Baixa Emissão', desc: 'Usa biocombustíveis e eletrificação para reduzir gases poluentes no trabalho diário.' },
+    { id: 4, symbol: '🐞', name: 'Manejo Biológico', desc: 'Combate pragas de forma natural preservando a microbiota protetora da terra.' },
+    { id: 5, symbol: '☀️', name: 'Energias Renováveis', desc: 'Usa o sol e ventos para energizar silos e bombeamento sem depender de combustíveis fósseis.' },
+    { id: 6, symbol: '🌳', name: 'Reflorestamento de Reservas', desc: 'Mantém corredores ecológicos que dão abrigo para animais nativos e polinizadores.' }
 ];
 
 let gameDeck = [...agroItems, ...agroItems];
-let movesCount = 0;
-let matchesCount = 0;
-let activeCards = [];
-let lockGrid = false;
-let currentUsername = "";
-let baseFontSize = 16;
+let movesCount = 0; let matchesCount = 0; let activeCards = [];
+let lockGrid = false; let currentUsername = ""; let baseFontSize = 16;
 
-// Mapeamentos do DOM
+// Mapeamentos de Abas e Telas do DOM
+const newsSection = document.getElementById('news-section');
 const welcomeSection = document.getElementById('welcome-section');
 const gameSection = document.getElementById('game-section');
 const victoryScreen = document.getElementById('victory-screen');
+const navNewsBtn = document.getElementById('nav-news-btn');
+const navGameBtn = document.getElementById('nav-game-btn');
+
+// Elementos Internos
+const newsGrid = document.getElementById('news-grid');
 const usernameInput = document.getElementById('username-input');
 const startGameBtn = document.getElementById('start-game-btn');
 const playerDisplay = document.getElementById('player-display');
 const movesCounter = document.getElementById('moves-counter');
 const matchesCounter = document.getElementById('matches-counter');
 const gameGrid = document.getElementById('game-grid');
-const resetGameBtn = document.getElementById('reset-game-btn');
-const restartVictoryBtn = document.getElementById('restart-victory-btn');
-const toggleDarkModeBtn = document.getElementById('toggle-dark-mode');
-const fontIncreaseBtn = document.getElementById('font-increase');
-const fontDecreaseBtn = document.getElementById('font-decrease');
-const victoryMessage = document.getElementById('victory-message');
 const progressBar = document.getElementById('game-progress');
 const eduFactBox = document.getElementById('edu-fact-box');
 const factTitle = document.getElementById('fact-title');
 const factDescription = document.getElementById('fact-description');
 const highScoreDisplay = document.getElementById('high-score-display');
 
-// --- SISTEMA DE ACESSIBILIDADE ---
-toggleDarkModeBtn.addEventListener('click', () => document.body.classList.toggle('dark-mode'));
+// --- SISTEMA DE ABAS (Troca fluida de conteúdo no Portal) ---
+navNewsBtn.addEventListener('click', () => {
+    switchTab(navNewsBtn, newsSection);
+});
 
-fontIncreaseBtn.addEventListener('click', () => {
-    if (baseFontSize < 24) { baseFontSize += 2; updateFontSize(); }
+navGameBtn.addEventListener('click', () => {
+    switchTab(navGameBtn, welcomeSection);
+    loadHighScore();
 });
-fontDecreaseBtn.addEventListener('click', () => {
-    if (baseFontSize > 12) { baseFontSize -= 2; updateFontSize(); }
-});
-function updateFontSize() {
+
+function switchTab(activeBtn, targetSection) {
+    // Reseta botões de navegação
+    navNewsBtn.classList.remove('active');
+    navGameBtn.classList.remove('active');
+    activeBtn.classList.add('active');
+
+    // Esconde todas as seções principais
+    newsSection.classList.add('hidden');
+    welcomeSection.classList.add('hidden');
+    gameSection.classList.add('hidden');
+    victoryScreen.classList.add('hidden');
+
+    // Mostra a selecionada
+    targetSection.classList.remove('hidden');
+}
+
+// --- CONTROLE DE ACESSIBILIDADE ---
+document.getElementById('toggle-dark-mode').addEventListener('click', () => document.body.classList.toggle('dark-mode'));
+document.getElementById('font-increase').addEventListener('click', () => adjustFont(2));
+document.getElementById('font-decrease').addEventListener('click', () => adjustFont(-2));
+
+function adjustFont(val) {
+    baseFontSize = Math.max(12, Math.min(24, baseFontSize + val));
     document.documentElement.style.setProperty('--font-base-size', `${baseFontSize}px`);
 }
 
-// --- LOCAL STORAGE (RECORDE DA MÁXIMA NOTA) ---
-function loadHighScore() {
-    const savedScore = localStorage.getItem('agrinhoHighScoreMoves');
-    const savedPlayer = localStorage.getItem('agrinhoHighScorePlayer');
-    if (savedScore) {
-        highScoreDisplay.innerHTML = `🏆 Recorde Atual da Escola: <strong>${savedPlayer}</strong> com apenas <strong>${savedScore}</strong> jogadas!`;
-    } else {
-        highScoreDisplay.textContent = "🌱 Nenhum recorde registrado ainda. Seja o pioneiro!";
-    }
-}
-window.addEventListener('DOMContentLoaded', loadHighScore);
+// --- RENDERIZADOR DINÂMICO DE NOTÍCIAS COM FILTRO ---
+function renderNews(filter = "all") {
+    newsGrid.innerHTML = "";
+    const filteredNews = filter === "all" ? newsData : newsData.filter(item => item.category === filter);
 
-// --- FLUXO DO JOGO ---
+    filteredNews.forEach(news => {
+        const article = document.createElement('article');
+        article.classList.add('news-card');
+        article.innerHTML = `
+            <span class="news-tag">${news.tag}</span>
+            <h3>${news.title}</h3>
+            <p>${news.excerpt}</p>
+        `;
+        newsGrid.appendChild(article);
+    });
+}
+
+// Escuta cliques nos botões de filtros de notícias
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        renderNews(this.dataset.category);
+    });
+});
+
+// --- SISTEMA INTERATIVO DO JOGO DA MEMÓRIA ---
+function loadHighScore() {
+    const score = localStorage.getItem('agrinhoHighScoreMoves');
+    const player = localStorage.getItem('agrinhoHighScorePlayer');
+    highScoreDisplay.innerHTML = score ? `🏆 Recorde: <strong>${player}</strong> com <strong>${score}</strong> jogadas` : "🌱 Nenhum recorde ativo. Comece agora!";
+}
+
 startGameBtn.addEventListener('click', () => {
-    const inputValue = usernameInput.value.trim();
-    if (inputValue === "") { alert("Digite seu nome para iniciar!"); return; }
-    currentUsername = inputValue;
+    const user = usernameInput.value.trim();
+    if (!user) { alert("Por favor, digite seu nome!"); return; }
+    currentUsername = user;
     playerDisplay.textContent = currentUsername;
     welcomeSection.classList.add('hidden');
     gameSection.classList.remove('hidden');
     initiateNewGame();
 });
 
-function shuffleDeck(array) {
-    for (let i = array.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [array[i], array[j]] = [array[j], array[i]];
-    }
-    return array;
-}
-
 function initiateNewGame() {
     movesCount = 0; matchesCount = 0; activeCards = []; lockGrid = false;
-    movesCounter.textContent = movesCount;
-    matchesCounter.textContent = matchesCount;
-    progressBar.style.width = "0%";
-    progressBar.textContent = "0%";
+    movesCounter.textContent = movesCount; matchesCounter.textContent = matchesCount;
+    progressBar.style.width = "0%"; progressBar.textContent = "0%";
     eduFactBox.classList.add('hidden');
     gameGrid.innerHTML = "";
-    
-    const shuffledCards = shuffleDeck([...gameDeck]);
-    shuffledCards.forEach((item) => {
-        const cardElement = document.createElement('div');
-        cardElement.classList.add('memory-card');
-        cardElement.dataset.id = item.id;
-        cardElement.dataset.name = item.name;
-        cardElement.dataset.desc = item.desc;
-        cardElement.textContent = item.symbol;
-        cardElement.setAttribute('role', 'button');
-        cardElement.setAttribute('aria-label', 'Carta Oculta');
-        cardElement.addEventListener('click', handleCardFlip);
-        gameGrid.appendChild(cardElement);
+
+    const shuffled = [...gameDeck].sort(() => Math.random() - 0.5);
+    shuffled.forEach(item => {
+        const card = document.createElement('div');
+        card.classList.add('memory-card');
+        card.dataset.id = item.id;
+        card.dataset.name = item.name;
+        card.dataset.desc = item.desc;
+        card.textContent = item.symbol;
+        card.setAttribute('role', 'button');
+        card.addEventListener('click', handleCardFlip);
+        gameGrid.appendChild(card);
     });
 }
 
 function handleCardFlip() {
-    if (lockGrid || this === activeCards[0] || this.classList.contains('matched')) return;
+    if (lockGrid || this === activeCards || this.classList.contains('matched')) return;
     this.classList.add('flipped');
     activeCards.push(this);
-    if (activeCards.length === 2) processTurnAttempt();
-}
-
-function processTurnAttempt() {
-    movesCount++;
-    movesCounter.textContent = movesCount;
-    const [firstCard, secondCard] = activeCards;
-    if (firstCard.dataset.id === secondCard.dataset.id) {
-        confirmMatchPoints(firstCard.dataset.name, firstCard.dataset.desc);
-    } else {
-        revertCardFlip();
+    if (activeCards.length === 2) {
+        movesCount++;
+        movesCounter.textContent = movesCount;
+        const [c1, c2] = activeCards;
+        if (c1.dataset.id === c2.dataset.id) {
+            c1.classList.add('matched'); c2.classList.add('matched');
+            matchesCount++;
+            matchesCounter.textContent = matchesCount;
+            
+            // Barra de Progresso e Fatos dinâmicos
+            const pct = Math.round((matchesCount / agroItems.length) * 100);
+            progressBar.style.width = `${pct}%`; progressBar.textContent = `${pct}%`;
+            
+            factTitle.textContent = `💡 Sabia que: ${c1.dataset.name}`;
+            factDescription.textContent = c1.dataset.desc;
+            eduFactBox.classList.remove('hidden');
+            
+            activeCards = [];
+            if (matchesCount === agroItems.length) setTimeout(triggerVictoryScreen, 1000);
+        } else {
+            lockGrid = true;
+            setTimeout(() => { c1.classList.remove('flipped'); c2.classList.remove('flipped'); activeCards = []; lockGrid = false; }, 1000);
+        }
     }
-}
-
-// Manipulação do DOM Avançada: Altera textos, exibe explicações e preenche a barra de progresso
-function confirmMatchPoints(name, desc) {
-    activeCards[0].classList.add('matched');
-    activeCards[1].classList.add('matched');
-    matchesCount++;
-    matchesCounter.textContent = matchesCount;
-    
-    // Atualiza Barra de Progresso
-    const progressPercent = Math.round((matchesCount / agroItems.length) * 100);
-    progressBar.style.width = `${progressPercent}%`;
-    progressBar.textContent = `${progressPercent}%`;
-    
-    // Exibe Painel Educativo Dinâmico
-    factTitle.textContent = `💡 Prática Descoberta: ${name}`;
-    factDescription.textContent = desc;
-    eduFactBox.classList.remove('hidden');
-    
-    activeCards = [];
-    if (matchesCount === agroItems.length) setTimeout(triggerVictoryScreen, 1200);
-}
-
-function revertCardFlip() {
-    lockGrid = true;
-    setTimeout(() => {
-        activeCards[0].classList.remove('flipped');
-        activeCards[1].classList.remove('flipped');
-        activeCards = [];
-        lockGrid = false;
-    }, 1000);
 }
 
 function triggerVictoryScreen() {
     gameSection.classList.add('hidden');
     victoryScreen.classList.remove('hidden');
-    victoryMessage.innerHTML = `Excelente trabalho, <strong>${currentUsername}</strong>! Você alcançou 100% de equilíbrio ambiental em <strong>${movesCount}</strong> jogadas.`;
+    document.getElementById('victory-message').innerHTML = `Parabéns <strong>${currentUsername}</strong>! Completado em <strong>${movesCount}</strong> jogadas.`;
     
-    // Processamento de Recordes locais
-    const currentRecord = localStorage.getItem('agrinhoHighScoreMoves');
-    if (!currentRecord || movesCount < parseInt(currentRecord)) {
+    const record = localStorage.getItem('agrinhoHighScoreMoves');
+    if (!record || movesCount < parseInt(record)) {
         localStorage.setItem('agrinhoHighScoreMoves', movesCount);
         localStorage.setItem('agrinhoHighScorePlayer', currentUsername);
-        victoryMessage.innerHTML += "<br><br><strong>🎉 NOVO RECORDE REGISTRADO DA ESCOLA!</strong>";
     }
 }
 
-resetGameBtn.addEventListener('click', initiateNewGame);
-restartVictoryBtn.addEventListener('click', () => {
-    victoryScreen.classList.add('hidden');
-    gameSection.classList.remove('hidden');
-    loadHighScore();
-    initiateNewGame();
+document.getElementById('reset-game-btn').addEventListener('click', initiateNewGame);
+document.getElementById('restart-victory-btn').addEventListener('click', () => {
+    victoryScreen.classList.add('hidden'); gameSection.classList.remove('hidden'); initiateNewGame();
+});
+
+// Inicialização da Página
+window.addEventListener('DOMContentLoaded', () => {
+    renderNews();
 });
